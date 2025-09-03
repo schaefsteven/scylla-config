@@ -20,6 +20,13 @@
 enum layer_names {
     main,
     top,
+    front,
+    swap,
+    sw_top,
+    emoji,
+    ultra,
+    gaming,
+
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -39,19 +46,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            XXXXXXX, XXXXXXX,     KC_ESC,  KC_ENT
     ),
 
-    //[top] = LAYOUT_split_4x6_5(
+    [top] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-         //KC_ESC, KC_BSPC,  KC_SPC,  KC_ENT, XXXXXXX, KC_CIRC,       KC_DLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(gaming),
+         KC_ESC, KC_BSPC,  KC_SPC,  KC_ENT, XXXXXXX, KC_CIRC,       KC_DLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(gaming),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-         //KC_GRV, KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,      KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_AMPR, KC_PIPE,
+         KC_GRV, KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,      KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_AMPR, KC_PIPE,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        //_______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
+        _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        //_______, KC_EXLM,   KC_AT, KC_HASH, KC_UNDS, KC_MINS,      KC_PLUS,  KC_EQL, KC_ASTR, KC_PERC, KC_BSLS, _______,
+        _______, KC_EXLM,   KC_AT, KC_HASH, KC_UNDS, KC_MINS,      KC_PLUS,  KC_EQL, KC_ASTR, KC_PERC, KC_BSLS, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                   //_______, _______, _______,    MO(emoji), _______, _______,
+                                   _______, _______, _______,    MO(emoji), _______, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                         //MO(sw_top), _______,      _______, _______
+                                         MO(sw_top), _______,      _______, _______
     //),
 
     //[front] = LAYOUT_split_4x6_5(
