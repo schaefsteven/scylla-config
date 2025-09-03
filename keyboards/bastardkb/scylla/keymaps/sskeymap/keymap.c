@@ -23,7 +23,7 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [main] = LAYOUT_split_4x6_5(
+    [test] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
