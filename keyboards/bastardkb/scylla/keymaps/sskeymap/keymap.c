@@ -18,12 +18,12 @@
 #include QMK_KEYBOARD_H
 
 enum layer_names {
-    test,
+    main,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [test] = LAYOUT_split_4x6_5(
+    [main] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
