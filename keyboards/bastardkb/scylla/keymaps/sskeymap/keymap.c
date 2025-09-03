@@ -19,13 +19,6 @@
 
 enum layer_names {
     main,
-    top,
-    front,
-    swap,
-    sw_top,
-    emoji,
-    ultra,
-    gaming,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
