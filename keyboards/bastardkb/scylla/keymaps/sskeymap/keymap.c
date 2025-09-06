@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [main] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_W,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,         KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_DQUO,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
@@ -41,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH, KC_RSFT,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                   KC_LALT, KC_LGUI, MO(top),    MO(front),  KC_SPC, KC_BSPC,
+                     KC_LALT, MT(MOD_LGUI, KC_SPC) , MO(top),    MO(front),  KC_SPC, KC_BSPC,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                            MO(swap), MO(ultra),     KC_ESC,  KC_ENT
     ),
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                    _______, _______, MO(sw_top),   _______, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            _______, _______,      _______, _______
+                                            _______, XXXXXXX,      _______, _______
     ),
 
     [sw_top] = LAYOUT_split_4x6_5(
@@ -103,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                    _______, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            _______, _______,      XXXXXXX, XXXXXXX
+                                            _______, XXXXXXX,      XXXXXXX, XXXXXXX
     ),
 
     [emoji] = LAYOUT_split_4x6_5(
@@ -123,17 +123,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [ultra] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+         KC_F12,  KC_F11,  KC_F10,   KC_F9,   KC_F8,   KC_F7,      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        _______, XXXXXXX, XXXXXXX, XXXXXXX,    KC_U, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
-    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                   _______, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_SPC,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            _______, _______,      XXXXXXX, XXXXXXX
+                                   XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                            XXXXXXX, _______,      XXXXXXX, XXXXXXX
     ),
 
     [gaming] = LAYOUT_split_4x6_5(
