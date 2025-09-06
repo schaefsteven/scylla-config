@@ -13,6 +13,14 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * TODO:
+ * emoji layer
+ * other numpad keys
+ * maybe swappable gui and alt for swapping between computers?
+ * handle caps lock on the keyboard itself
+ *
  */
 
 #include QMK_KEYBOARD_H
