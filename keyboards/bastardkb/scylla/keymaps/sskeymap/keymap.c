@@ -17,6 +17,12 @@
 
 #include QMK_KEYBOARD_H
 
+enum custom_keycodes {
+    UD_EM1 = SAFE_RANGE,
+    UD_KVM1,
+    UD_KVM2,
+};
+
 enum layer_names {
     main,
     top,
@@ -27,6 +33,30 @@ enum layer_names {
     ultra,
     gaming,
 
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case UD_EM1:
+        if (record->event.pressed) {
+            SEND_STRING("schaefsteven@gmail.com");
+        }
+        break;
+
+    case UD_KVM1:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "1");
+        }
+        break;
+
+    case UD_KVM2:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "2");
+        }
+        break;
+
+    }
+    return true;
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -48,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [top] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-         KC_ESC, KC_BSPC,  KC_SPC,  KC_ENT, XXXXXXX, KC_CIRC,       KC_DLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(gaming),
+         KC_ESC, KC_BSPC,  KC_SPC,  KC_ENT,  UD_EM1, KC_CIRC,       KC_DLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(gaming),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_GRV, KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,      KC_RABK, KC_RPRN, KC_RBRC, KC_RCBR, KC_AMPR, KC_PIPE,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
@@ -127,9 +157,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, KC_BSPC, XXXXXXX,  KC_ENT,  KC_SPC, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_SPC,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, UD_KVM1, UD_KVM2, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                    XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
