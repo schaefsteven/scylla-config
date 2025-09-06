@@ -16,6 +16,7 @@
  *
  *
  * TODO:
+ * phone number macro
  * emoji layer
  * other numpad keys
  * maybe swappable gui and alt for swapping between computers?
