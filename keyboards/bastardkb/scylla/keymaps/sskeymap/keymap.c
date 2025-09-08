@@ -17,6 +17,7 @@
  *
  * TODO:
  * add gui tap to kvm macro 1
+ * 192.168.1. macro
  * phone number macro
  * emoji layer
  * other numpad keys
