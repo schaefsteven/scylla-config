@@ -16,6 +16,7 @@
  *
  *
  * TODO:
+ * add gui tap to kvm macro 1
  * phone number macro
  * emoji layer
  * other numpad keys
