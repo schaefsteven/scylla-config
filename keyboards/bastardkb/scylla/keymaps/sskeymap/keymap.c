@@ -16,13 +16,9 @@
  *
  *
  * TODO:
- * add gui tap to kvm macro 1
- * 192.168.1. macro
- * phone number macro
  * emoji layer
  * other numpad keys
  * maybe swappable gui and alt for swapping between computers?
- * handle caps lock on the keyboard itself
  *
  */
 
@@ -30,8 +26,60 @@
 
 enum custom_keycodes {
     UD_EM1 = SAFE_RANGE,
+    UD_PHF,
+    UD_PHU,
+    UD_IP1,
     UD_KVM1,
     UD_KVM2,
+};
+
+// MACROS
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case UD_EM1:
+        if (record->event.pressed) {
+            SEND_STRING("schaefsteven@gmail.com");
+        }
+        break;
+
+    case UD_PHF:
+        if (record->event.pressed) {
+            SEND_STRING("(906) 291-0614");
+        }
+        break;
+
+    case UD_PHU:
+        if (record->event.pressed) {
+            SEND_STRING("9062910614");
+        }
+        break;
+
+    case UD_IP1:
+        if (record->event.pressed) {
+            SEND_STRING("192.168.1.");
+        }
+        break;
+
+    case UD_KVM1:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "1" SS_TAP(X_LGUI));
+        }
+        break;
+
+    case UD_KVM2:
+        if (record->event.pressed) {
+            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "2");
+        }
+        break;
+
+    }
+    return true;
+};
+
+// COMBOS
+const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END}
+combo_t key_combos[] = {
+    COMBO(capslock_combo, KC_CAPS),
 };
 
 enum layer_names {
@@ -44,30 +92,6 @@ enum layer_names {
     ultra,
     gaming,
 
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-    case UD_EM1:
-        if (record->event.pressed) {
-            SEND_STRING("schaefsteven@gmail.com");
-        }
-        break;
-
-    case UD_KVM1:
-        if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "1");
-        }
-        break;
-
-    case UD_KVM2:
-        if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "2");
-        }
-        break;
-
-    }
-    return true;
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -166,11 +190,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_F12,  KC_F11,  KC_F10,   KC_F9,   KC_F8,   KC_F7,      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  UD_PHF,  UD_PHU,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         _______, KC_BSPC, XXXXXXX,  KC_ENT,  KC_SPC, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        _______, UD_KVM1, UD_KVM2, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, UD_KVM1, UD_KVM2, XXXXXXX,  UD_IP1, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                    XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
