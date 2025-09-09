@@ -77,7 +77,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 // COMBOS
-const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END}
+const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
 combo_t key_combos[] = {
     COMBO(capslock_combo, KC_CAPS),
 };
