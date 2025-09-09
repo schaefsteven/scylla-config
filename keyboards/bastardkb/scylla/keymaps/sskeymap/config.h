@@ -3,3 +3,4 @@
 #undef MASTER_RIGHT
 #define MASTER_LEFT
 #define COMBO_TERM 5000
+#define MANUFACTURER "Bastard Keyboards"
