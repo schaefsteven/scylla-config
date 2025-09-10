@@ -81,7 +81,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // COMBO(capslock_combo, KC_CAPS),
 // };
 //
-const key_override_t double_shift_caps = ko_make_basic(MOD_MASK_SHIFT, KC_NO, KC_CAPS);
+const key_override_t double_shift_caps = {
+    .trigger_mods = MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT),
+    .trigger = KC_NO,
+    .replacement = KC_CAPS,
+    .layers = ~0,
+    .negative_mod_mask = 0,
+    .suppressed_mods = MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT),
+    .options = ko_options_default,
+    .custom_action = NULL,
+    .context = NULL,
+    .enabled = NULL};
+
 
 const key_override_t *key_overrides[] = {
     &double_shift_caps
