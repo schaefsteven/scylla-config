@@ -62,7 +62,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     case UD_KVM1:
         if (record->event.pressed) {
-            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "1" SS_TAP(X_LGUI));
+            SEND_STRING(SS_TAP(X_LCTL) SS_TAP(X_LCTL) "1" SS_DELAY(100) SS_TAP(X_LGUI));
         }
         break;
 
