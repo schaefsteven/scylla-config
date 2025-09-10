@@ -76,9 +76,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 // COMBOS
-const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
-combo_t key_combos[] = {
-    COMBO(capslock_combo, KC_CAPS),
+// const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
+// combo_t key_combos[] = {
+    // COMBO(capslock_combo, KC_CAPS),
+// };
+//
+const key_override_t double_shift_caps = ko_make_basic(MOD_MASK_SHIFT, KC_NO, KC_CAPS);
+
+const key_override_t *key_overrides[] = {
+    &double_shift_caps
 };
 
 enum layer_names {
