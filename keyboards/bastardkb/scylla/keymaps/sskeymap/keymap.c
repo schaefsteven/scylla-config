@@ -32,9 +32,14 @@ enum custom_keycodes {
     UD_KVM2,
 };
 
-// MACROS
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static bool left_shift_pressed = false;
+    static bool right_shift_pressed = false;
+    static bool caps_lock_triggered = false;
+
     switch (keycode) {
+
+    // MACROS
     case UD_EM1:
         if (record->event.pressed) {
             SEND_STRING("schaefsteven@gmail.com");
@@ -71,31 +76,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
+    // DOUBLE SHIFT FOR CAPS LOCK
+    case KC_LSFT:
+        if (record->event.pressed) {
+            if (get_mods() & MOD_BIT(KC_RSFT)) {
+                tap_code(KC_CAPS);
+            }
+        }
+        break;
+
+    case KC_RSFT:
+        if (record->event.pressed) {
+            if (get_mods() & MOD_BIT(KC_LSFT)) {
+                tap_code(KC_CAPS);
+            }
+        }
+        break;
+
     }
     return true;
-};
-
-// COMBOS
-// const uint16_t PROGMEM capslock_combo[] = {KC_LSFT, KC_RSFT, COMBO_END};
-// combo_t key_combos[] = {
-    // COMBO(capslock_combo, KC_CAPS),
-// };
-//
-const key_override_t double_shift_caps = {
-    .trigger_mods = MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT),
-    .trigger = KC_NO,
-    .replacement = KC_CAPS,
-    .layers = ~0,
-    .negative_mod_mask = 0,
-    .suppressed_mods = MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT),
-    .options = ko_options_default,
-    .custom_action = NULL,
-    .context = NULL,
-    .enabled = NULL};
 
 
-const key_override_t *key_overrides[] = {
-    &double_shift_caps
 };
 
 enum layer_names {
