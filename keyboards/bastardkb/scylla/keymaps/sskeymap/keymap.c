@@ -33,10 +33,6 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    static bool left_shift_pressed = false;
-    static bool right_shift_pressed = false;
-    static bool caps_lock_triggered = false;
-
     switch (keycode) {
 
     // MACROS
