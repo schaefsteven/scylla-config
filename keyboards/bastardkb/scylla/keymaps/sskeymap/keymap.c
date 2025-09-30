@@ -107,6 +107,14 @@ enum layer_names {
 
 };
 
+enum unicode_names {
+    ROCKET, // 🚀
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    [ROCKET] = 0x1F780, // 🚀
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [main] = LAYOUT_split_4x6_5(
@@ -190,7 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-        _______, XXXXXXX, XXXXXXX, XXXXXXX,    KC_E, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+        _______, XXXXXXX, XXXXXXX, XXXXXXX, UM(ROCKET), XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|

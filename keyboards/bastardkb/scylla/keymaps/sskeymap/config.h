@@ -4,3 +4,5 @@
 #define MASTER_LEFT
 #define COMBO_TERM 5000
 #define MANUFACTURER "Bastard Keyboards"
+
+#define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
