@@ -112,7 +112,7 @@ enum unicode_names {
 };
 
 const uint32_t PROGMEM unicode_map[] = {
-    [ROCKET] = 0x1F780, // 🚀
+    [ROCKET] = 0x1F680, // 🚀
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
