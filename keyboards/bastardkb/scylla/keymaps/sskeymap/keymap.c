@@ -104,7 +104,7 @@ enum layer_names {
     emoji,
     ultra,
     gaming,
-
+    gtop,
 };
 
 enum unicode_names {
@@ -224,17 +224,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [gaming] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-           KC_5,    KC_4,    KC_3,    KC_2,    KC_1,    KC_0,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
+         KC_ESC,    KC_M,    KC_Y,    KC_H,    KC_N,    KC_U,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_TAB,    KC_G,    KC_Q,    KC_W,    KC_E,    KC_R,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-           KC_T, KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
+           KC_M, KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-           KC_9,    KC_8,    KC_Z,    KC_X,    KC_C,    KC_V,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
+           KC_I,    KC_K,    KC_Z,    KC_X,    KC_C,    KC_V,      DF(main), DF(main), DF(main), DF(main), DF(main), DF(main),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                   KC_LALT,  KC_SPC,    KC_6,      DF(main), DF(main), DF(main),
+                                   KC_LALT,  KC_SPC, MO(gtop),     DF(main), DF(main), DF(main),
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                                            KC_LCTL,    KC_7,      DF(main), DF(main)
+                                            KC_LCTL,    KC_G,      DF(main), DF(main)
+    ),
+
+    [gtop] = LAYOUT_split_4x6_5(
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+         KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+         KC_GRV, KC_TILD, KC_LCBR, KC_LBRC, KC_LPRN, KC_LABK,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+        _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+        _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                   _______, _______, _______,      XXXXXXX, XXXXXXX, XXXXXXX,
+    //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
+                                            _______, _______,      XXXXXXX, XXXXXXX
     ),
 
 };
