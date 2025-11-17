@@ -134,6 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                            MO(swap), MO(ultra),     KC_ESC,  KC_ENT
     ),
 
+    // OVERLAY WITH LEFT SIDE SPACE KEY
     [lspc] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         _______, _______, _______, _______, _______, KC_LALT,      _______, _______, _______, _______, _______, _______,
@@ -149,6 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______,      _______, _______
     ),
 
+    // TOP
     [top] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_ESC, KC_BSPC,  KC_SPC,  KC_ENT,  UD_EM1, KC_CIRC,       KC_DLR, XXXXXXX, XXXXXXX, XXXXXXX, TG(lspc), DF(gaming),
@@ -164,6 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                          MO(sw_top), _______,      _______, _______
     ),
 
+    // FRONT
     [front] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_F13,  KC_F14,  KC_F15,  KC_F16,  KC_F17,  KC_F18,       KC_F19,  KC_F20,  KC_F21,  KC_F22,  KC_F23,  KC_F24,
@@ -179,6 +182,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______,      _______, _______
     ),
 
+    // SWAP
     [swap] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
           KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,        KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,  KC_F12,
@@ -194,6 +198,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, XXXXXXX,      _______, _______
     ),
 
+    // SWAP TOP
     [sw_top] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
      DF(gaming), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_DLR,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -209,6 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, XXXXXXX,      XXXXXXX, XXXXXXX
     ),
 
+    // EMOJI (TOP + FRONT)
     [emoji] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -224,6 +230,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______,      XXXXXXX, XXXXXXX
     ),
 
+    // ULTRA
     [ultra] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_F12,  KC_F11,  KC_F10,   KC_F9,   KC_F8,   KC_F7,      QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -239,6 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             XXXXXXX, _______,      XXXXXXX, XXXXXXX
     ),
 
+    // GAMING BASE LAYER WITH WASD MOVED
     [gaming] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_ESC,  KC_F13,    KC_T,    KC_G,    KC_B,    KC_H,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(main),
@@ -254,6 +262,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             KC_RCTL, MO(gmain),     KC_ESC,  KC_ENT
     ),
 
+    // TOP LAYER FOR GAMING MODE
     [gtop] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
          KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, DF(main),
@@ -269,6 +278,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                             _______, _______,      XXXXXXX, XXXXXXX
     ),
 
+    // MOMENTARY MAIN LAYER TO ACCESS FROM GAMING LAYER
     [gmain] = LAYOUT_split_4x6_5(
     //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
