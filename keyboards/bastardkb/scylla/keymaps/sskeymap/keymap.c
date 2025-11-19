@@ -186,7 +186,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             // ULTRA
             [ultra] = LAYOUT_split_4x6_5(
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                 KC_ESC,  UD_IP1,  UD_PHU,  UD_PHU,  UD_EM1, DF(gaming),   QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                 KC_ESC,  UD_IP1,  UD_PHU,  UD_PHF,  UD_EM1, DF(gaming),   QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                  KC_DEL,  KC_INS, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
