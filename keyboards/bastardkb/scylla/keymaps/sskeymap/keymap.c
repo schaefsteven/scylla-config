@@ -94,6 +94,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         }
         break;
 
+    // MOD-TAP WORKAROUND
     case UD_SCAR:
         if (record->event.pressed) {
             ud_scar_timer = timer_read();
