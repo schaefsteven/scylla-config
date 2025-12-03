@@ -6,3 +6,5 @@
 #define MANUFACTURER "Bastard Keyboards"
 
 #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX
+
+#define TAPPING_TERM 200

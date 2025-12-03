@@ -30,9 +30,14 @@ enum custom_keycodes {
     UD_IP1,
     UD_KVM1,
     UD_KVM2,
+    UD_SCAR,
+    UD_SDLR,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static uint16_t ud_scar_timer;
+    static uint16_t ud_sdlr_timer;
+
     switch (keycode) {
 
     // MACROS
@@ -85,6 +90,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
             if (get_mods() & MOD_BIT(KC_LSFT)) {
                 tap_code(KC_CAPS);
+            }
+        }
+        break;
+
+    // MOD-TAP WORKAROUND
+    case UD_SCAR:
+        if (record->event.pressed) {
+            ud_scar_timer = timer_read();
+            register_code(KC_LSFT); // Change the key to be held here
+        } else {
+            unregister_code(KC_LSFT); // Change the key that was held here, too!
+            if (timer_elapsed(ud_scar_timer) < TAPPING_TERM) {
+            SEND_STRING("^"); // Change the character(s) to be sent on tap here
+            }
+        }
+        break;
+
+    case UD_SDLR:
+        if (record->event.pressed) {
+            ud_sdlr_timer = timer_read();
+            register_code(KC_RSFT); // Change the key to be held here
+        } else {
+            unregister_code(KC_RSFT); // Change the key that was held here, too!
+            if (timer_elapsed(ud_sdlr_timer) < TAPPING_TERM) {
+            SEND_STRING("$"); // Change the character(s) to be sent on tap here
             }
         }
         break;
@@ -160,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                 _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,         KC_6,    KC_7,    KC_8,    KC_9,    KC_0, _______,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-  MT(MOD_LSFT, KC_CIRC), KC_EXLM,   KC_AT, KC_HASH, KC_UNDS, KC_MINS,      KC_PLUS,  KC_EQL, KC_ASTR, KC_PERC, KC_BSLS, MT(MOD_RSFT, KC_DLR),
+                UD_SCAR, KC_EXLM,   KC_AT, KC_HASH, KC_UNDS, KC_MINS,      KC_PLUS,  KC_EQL, KC_ASTR, KC_PERC, KC_BSLS, UD_SDLR,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                            _______, _______, _______,    MO(emoji), _______, _______,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
@@ -176,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                 _______,    KC_0,    KC_9,    KC_8,    KC_7,    KC_6,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
-                _______, KC_BSLS, KC_PERC, KC_ASTR,  KC_EQL, KC_PLUS,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                UD_SDLR, KC_BSLS, KC_PERC, KC_ASTR,  KC_EQL, KC_PLUS,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
                                            _______, _______, _______,      XXXXXXX, _______, _______,
             //|--------+--------+--------+--------+--------+--------|    |--------+--------+--------+--------+--------+--------|
